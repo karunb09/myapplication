@@ -1,0 +1,19 @@
+{
+    "name": "a03",
+    "version": "0.0.1",
+    "description": "resume app",
+    "main": "app.js",
+    "dependencies": {
+        "express": "latest",
+        "morgan": "latest",
+        "body-parser": "latest",
+        "ejs": "latest"
+    },
+    "author": "Karun Bourishetty",
+    "homepage": "https://bitbucket.org/karunb/myapplication/",
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/karunb/myapplication"
+    },
+    "license": "Apache-2.0"
+}

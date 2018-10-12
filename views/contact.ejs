@@ -1,0 +1,36 @@
+<% include header%>
+<body background="/images/contactimage.png" id="container">
+          
+    <h1 id="contact">Contact:-</h1>
+    <div class="container">
+            <img bg="/public/images/contactimage.png">
+            <!-- Example row of columns -->
+            <div class="row">
+              <div class="col-md-6">
+                <h2><u>FeedBack: </u></h2>
+                Name: (required)<br>
+                <input type="text" class="form-control" value="" placeholder="FirstName LastName" required><br>
+                Email:(required)<br>
+                <input type="email" class="form-control" value="" placeholder="@example.com" required><br>
+                <label for="inputPassword6" class="">
+                  <p id="phone"><strong>Phone:</strong></p>
+                </label><br>
+                <input type="text" class="form-control" id="phone" placeholder="(xxx)-xxx-xxxx" maxlength="10" required>
+                Message:<br>
+                <textarea rows="10" cols="30" class="form-control" required></textarea><br>              
+                <button type="submit" class="btn btn-success" onclick="alert('thank you for your feedback!')">submit</button>
+                <button type="reset" class="btn btn-secondary" placeholder="type your message here...">reset</button>
+                <!-- <p><a class="btn btn-default" role="button" onclick="alert('thank you for your feedback!')">Submit</a></p> -->
+              </div>
+             
+              <div class="col-md-6">
+                <h2><u>Connect me through:-</u><h2>
+                        <ol type="1"><li><a href="https://www.linkedin.com/in/karun-bourishetty">LinkedIN</a>    <a href="#" class="fa fa-linkedin"></a></li><br><br>
+                        <li><a href="https://github.com/karunb09">Github</a></li></ol>
+                         
+                <!-- <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p> -->
+                <!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+              </div>
+            </div>             
+    </form>    
+<% include footer%>
