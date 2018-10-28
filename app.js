@@ -26,49 +26,61 @@ app.use(logger('combined', { stream: accessLogStream }));
 app.get("/", function (req, res) {
   //res.sendFile(path.join(__dirname + '/assets/index.html'))
   res.render("index.ejs")
- })
- 
- // 4 http GET /Agecalculator
- app.get("/agecalculator", function (req, res) {
+})
+
+// 4 http GET /Agecalculator
+app.get("/agecalculator", function (req, res) {
   res.render("agecalculator.ejs")
- })
- 
- // 4 http GET /about
- app.get("/index", function (req, res) {
-  res.render("index.ejs")
- })
- 
- // 4 http GET /contact
- app.get("/contact", function (req, res) {
-  res.render("contact.ejs")
- })
- 
-// 5 handle valid POST request
-app.post("/contact", function (req, res) {
-  const name = req.body.inputname;
-  const email = req.body.inputemail;
-  const company = req.body.inputcompany;
-  const comment = req.body.inputcomment;
-  const isError = true;
+})
 
-  const mailOptions = {
-    from: '"karun" <karunb09@gmail.com>', // sender address
-    to: 's533900@nwmissouri.edu, karunb09@gmail.com', // list of receivers
-    subject: 'Message from Website Contact page', // Subject line
-    text: comment,
-    err: isError
-  }
-
-  console.log('\nCONTACT FORM DATA: ' + name + ' ' + email + ' ' + comment + '\n');
+// 4 http GET /about
+app.get("/index", function (req, res) {
   res.render("index.ejs")
 })
- 
+
+// 4 http GET /contact
+app.get("/contact", function (req, res) {
+  res.render("contact.ejs")
+})
+
+// 5 handle valid POST request
+app.post("/contact", function (req, res) {
+  var api_key = 'key-5120e59afb64c18f908976fa17a3117c-4836d8f5-ca3be324';
+  var domain = 'sandbox63a243b91106481aaaaeb4870a8a6cb6.mailgun.org';
+  var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+
+  var data = {
+    from: 'Calculator App User <postmaster@sandbox63a243b91106481aaaaeb4870a8a6cb6.mailgun.org>',
+    to: 's533900@nwmissouri.edu',
+    subject: req.body.name + " Sent you a message",
+    html: "<b style='color:blue'>Name: </b>" + req.body.name + "<br>" + "<b style='color:green'> phone: </b>" + req.body.phone + "<br>reply him :" + "<b style='color:red'>" + req.body.email + "</b>message: " + "<b style='color:black'>" +req.body.message+"</b>"
+  };
+
+  mailgun.messages().send(data, function (error, body) {
+    if (!error) {
+      res.send({
+        show: true,
+        message: "Mail sent",
+        messagebody: "success"
+      })
+    } else {
+      res.send({
+        show: true,
+        message: "Mail Sending Failed",
+        messagebody: "Failure! Please try again"
+      })
+    }
+  })
+
+})
+
+
 // 6 respond with 404 if a bad URI is requested
 app.get(function (req, res) {
   res.render("404")
- })
- 
+})
+
 // Listen for an application request on port 8081
 app.listen(port, function () {
-  console.log('Web app started and listening on http://localhost:' + port)
- }) 
+  console.log('Age calculator app started and listening on http://localhost:' + port)
+}) 
