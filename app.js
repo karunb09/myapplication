@@ -2,7 +2,7 @@ const path = require("path")
 const express = require("express")
 const logger = require("morgan")
 const bodyParser = require("body-parser")
-
+let fs = require('fs')
 const app = express()  // make express app
 const port = 8085
 
@@ -18,9 +18,9 @@ app.use(bodyParser.json());
 
 // 3 set up the logger
 // log HTTP requests to a file using the standard Apache combined format
-// var accessLogStream = fs.createWriteStream(__dirname + '/access.log', { flags: 'a' });
-// app.use(logger('dev'));
-// app.use(logger('combined', { stream: accessLogStream }));
+var accessLogStream = fs.createWriteStream(__dirname + '/access.log', { flags: 'a' });
+app.use(logger('dev'));
+app.use(logger('combined', { stream: accessLogStream }));
 
 // 4 handle valid GET requests
 app.get("/", function (req, res) {
