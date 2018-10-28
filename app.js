@@ -81,6 +81,6 @@ app.get(function (req, res) {
 })
 
 // Listen for an application request on port 8081
-app.listen(port,function () {
-  console.log('Age calculator app started and listening on http://localhost:' + port)
+app.listen(process.env.PORT || 8085,function () {
+  console.log('Age calculator app started and listening on http://localhost:8085/')
 })
