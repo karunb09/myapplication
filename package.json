@@ -4,11 +4,12 @@
     "description": "resume app",
     "main": "app.js",
     "dependencies": {
-        "express": "latest",
-        "morgan": "latest",
         "body-parser": "latest",
         "ejs": "latest",
-        "mailgun-js": "latest"
+        "express": "latest",
+        "mailgun-js": "latest",
+        "morgan": "latest",
+        "sendgrid": "^5.2.3"
     },
     "author": "Karun Bourishetty",
     "homepage": "https://bitbucket.org/karunb/myapplication/",

@@ -45,18 +45,19 @@ app.get("/contact", function (req, res) {
 
 // 5 handle valid POST request
 app.post("/contact", function (req, res) {
-  var api_key = 'key-04a74af1af4788102cde6522cc289dd2-4836d8f5-2487db95';
-  var domain = 'sandbox9d737d3eb7464d199f173f2ee6e41d7b.mailgun.org';
+  var api_key = '6f779fc0fd4c413e8d35-4836d8f5-09a65287';
+  var domain = 'sandboxd762d5c591627116b56ce07c.mailgun.org';
   var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
   var data = {
-    from: 'Calculator App User <postmaster@sandbox9d737d3eb7464d199f173f2ee6e41d7b.mailgun.org>',
-    to: 's533900@nwmissouri.edu',
+    from: 'Calculator App User <postmaster@sandboxd762468591627116b56ce07c.mailgun.org>',
+    to: 'karunb09@gmail.com',
     subject: req.body.name + " Sent you a message",
     html: "<b style='color:blue'>Name: </b>" + req.body.name + "<br>" + "<b style='color:green'> phone: </b>" + req.body.phone + "<br>" + "<b style='color:red'>reply him : </b>" + req.body.email +"<br>" +"<b>message: </b>"  +req.body.message+"<br>"
   };
 
   mailgun.messages().send(data, function (error, body) {
+    console.log(body);
     if (!error) {
       res.send({
         show: true,

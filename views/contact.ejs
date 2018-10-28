@@ -31,12 +31,14 @@
           "https://localhost:8085/contact",
           data, function (res) {
             if (res.show) {
-              $('#modalbody').html(res.messagebody);
-              $('#modaltitle').html(res.message);
-              $('#myModal').modal('show');
+              alert("message sent");
+              // $('#modalbody').html(res.messagebody);
+              // $('#modaltitle').html(res.message);
+              // $('#myModal').modal('show');
               //document.getElementById('form').reset();
             } else {
-              $('#myModal').modal('hide');
+              alert("message not sent");
+              // $('#myModal').modal('hide');
             }
           })
       }
