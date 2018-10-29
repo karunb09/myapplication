@@ -60,7 +60,7 @@ h4.aside-header{
     margin: 30px;
     margin-left: auto;
     margin-right: auto;
-    color: green;
+    
 }
 
 #age_container {
@@ -72,6 +72,7 @@ h4.aside-header{
     background: #EEE;
     font-size: 20px;
     line-height: 40px;
+    color: black;
 }
 
 #calculate {
@@ -81,7 +82,7 @@ h4.aside-header{
     width: 200px;
     padding: 10px;
     /* margin: 30px; */
-    margin-left: auto;
+    margin-left: 570px;
     margin-right: auto;
     border: 1px solid #999;
     /* border-radius: 10px ; */

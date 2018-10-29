@@ -4,7 +4,7 @@ const logger = require("morgan")
 const bodyParser = require("body-parser")
 let fs = require('fs')
 const app = express()  // make express app
-const port = process.env.PORT||8085
+//const port = process.env.PORT||8085
 
 // ADD THESE COMMENTS AND IMPLEMENTATION HERE
 // 1 set up the view engine
@@ -45,15 +45,15 @@ app.get("/contact", function (req, res) {
 
 // 5 handle valid POST request
 app.post("/contact", function (req, res) {
-  var api_key = '6f779fc0fd4c413e8d35-4836d8f5-09a65287';
-  var domain = 'sandboxd762d5c591627116b56ce07c.mailgun.org';
+  var api_key = 'pubkey-1cd3184e96ad523e33c4d945bbba8dc9';
+  var domain = 'sandboxd762d5c81b02468591627116b56ce07c.mailgun.org';
   var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
   var data = {
-    from: 'Calculator App User <postmaster@sandboxd762468591627116b56ce07c.mailgun.org>',
-    to: 'karunb09@gmail.com',
+    from: 'Calculator App User <postmaster@sandboxd762d5c81b02468591627116b56ce07c.mailgun.org>',
+    to: 'karun_b97@yahoo.com',
     subject: req.body.name + " Sent you a message",
-    html: "<b style='color:blue'>Name: </b>" + req.body.name + "<br>" + "<b style='color:green'> phone: </b>" + req.body.phone + "<br>" + "<b style='color:red'>reply him : </b>" + req.body.email +"<br>" +"<b>message: </b>"  +req.body.message+"<br>"
+    html: "<b> Name: </b>" + req.body.name + "<br>" + "<b>phone: </b>" + req.body.phone + "<br>" + "<b reply him : ></b>" + req.body.email +"<br>" +"<b>message: </b>"  +req.body.message+"<br>"
   };
 
   mailgun.messages().send(data, function (error, body) {
@@ -71,7 +71,7 @@ app.post("/contact", function (req, res) {
         messagebody: "Failure! Please try again"
       })
     }
-  })
+  });
 })
 
 

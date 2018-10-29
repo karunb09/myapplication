@@ -10,7 +10,7 @@
         "body-parser": "latest",
         "ejs": "latest",
         "express": "latest",
-        "mailgun-js": "latest",
+        "mailgun-js": "^0.22.0",
         "morgan": "latest",
         "sendgrid": "^5.2.3"
     },
